@@ -1,0 +1,207 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f2f2f2;
+    animation: fadeInBody 1s ease-out;
+}
+
+@keyframes fadeInBody {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.game-container {
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 360px;
+    opacity: 0;
+    animation: fadeIn 1.5s forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeInBoard 1.5s 0.5s forwards;
+}
+
+@keyframes fadeInBoard {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background-color: #fafafa;
+    border: 2px solid #ddd;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    border-radius: 8px;
+    opacity: 0;
+    animation: cellFadeIn 0.5s forwards;
+}
+
+@keyframes cellFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.cell:hover {
+    background-color: #eaeaea;
+    transform: scale(1.05);
+}
+
+.cell.x {
+    color: #ff5722;
+    animation: pulseX 0.5s ease-in-out infinite;
+}
+
+@keyframes pulseX {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.cell.o {
+    color: #2196f3;
+    animation: pulseO 0.5s ease-in-out infinite;
+}
+
+@keyframes pulseO {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.2rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    animation: fadeInButton 1s 1.5s forwards;
+}
+
+@keyframes fadeInButton {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.status {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #555;
+    font-weight: 600;
+}
+
+@media (max-width: 400px) {
+    .game-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .cell {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+    }
+
+    button {
+        font-size: 1rem;
+    }
+}
+
+/* Animation for winning line */
+@keyframes highlightWin {
+    0% {
+        background-color: rgba(255, 87, 34, 0.5);
+    }
+    50% {
+        background-color: rgba(255, 87, 34, 0.8);
+    }
+    100% {
+        background-color: rgba(255, 87, 34, 1);
+    }
+}
+
+/* Winning Line Effects */
+.win-line {
+    animation: highlightWin 1s ease-in-out;
+}
