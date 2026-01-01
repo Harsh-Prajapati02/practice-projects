@@ -40,7 +40,7 @@ function checkWinner() {
     return winningCombinations.some(combination => {
         const [a, b, c] = combination;
         return gameBoard[a] && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c];
-    });
+    }); 
 }
 
 // Reset the game when the reset button is clicked
